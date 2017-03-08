@@ -1,7 +1,7 @@
 class FlightsController < ApplicationController
   def index
     @q = Flight.ransack(params[:q])
-    @flights = @q.result(:distinct => true).includes(:airline, :departure_city, :destination_city, :reviews, :destination_airport, :departure_airport).page(params[:page]).per(10)
+    @flights = @q.result(:distinct => true).includes(:airline, :reviews, :departure_city, :destination_airport).page(params[:page]).per(10)
 
     render("flights/index.html.erb")
   end
@@ -22,10 +22,8 @@ class FlightsController < ApplicationController
   def create
     @flight = Flight.new
 
-    @flight.destination_city_id = params[:destination_city_id]
     @flight.departure_city_id = params[:departure_city_id]
     @flight.destination_airport_id = params[:destination_airport_id]
-    @flight.departure_airport_id = params[:departure_airport_id]
     @flight.airline_id = params[:airline_id]
 
     save_status = @flight.save
@@ -53,10 +51,8 @@ class FlightsController < ApplicationController
   def update
     @flight = Flight.find(params[:id])
 
-    @flight.destination_city_id = params[:destination_city_id]
     @flight.departure_city_id = params[:departure_city_id]
     @flight.destination_airport_id = params[:destination_airport_id]
-    @flight.departure_airport_id = params[:departure_airport_id]
     @flight.airline_id = params[:airline_id]
 
     save_status = @flight.save

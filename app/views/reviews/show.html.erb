@@ -18,7 +18,7 @@
       <dd>
         <% if @review.flight.present? %>
           <a href="/flights/<%= @review.flight_id %>">
-            <%= @review.flight.destination_city_id %>
+            <%= @review.flight.created_at %>
           </a>
         <% end %>
       </dd>
