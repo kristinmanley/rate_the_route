@@ -1,6 +1,6 @@
 class DepartureAirportsController < ApplicationController
   def index
-    @departure_airports = DepartureAirport.all
+    @departure_airports = DepartureAirport.page(params[:page]).per(10)
 
     render("departure_airports/index.html.erb")
   end
