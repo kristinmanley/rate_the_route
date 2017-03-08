@@ -21,13 +21,13 @@
       
       
 
-      <!-- Label and input for flight_id -->
+      <!-- Label and input for flight_route_id -->
       <div class="form-group">
-        <label for="flight_id" class="control-label">
-          Flight
+        <label for="flight_route_id" class="control-label">
+          Flight route
         </label>
 
-        <%= select_tag(:flight_id, options_from_collection_for_select(Flight.all, :id, :created_at, @review.flight_id), :class => "form-control") %>
+        <%= select_tag(:flight_route_id, options_from_collection_for_select(FlightRoute.all, :id, :route_id, @review.flight_route_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for body -->

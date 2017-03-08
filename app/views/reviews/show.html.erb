@@ -14,11 +14,11 @@
         <% end %>
       </dd>
 
-      <dt>Flight</dt>
+      <dt>Flight route</dt>
       <dd>
-        <% if @review.flight.present? %>
-          <a href="/flights/<%= @review.flight_id %>">
-            <%= @review.flight.created_at %>
+        <% if @review.flight_routes.present? %>
+          <a href="/flight_routes/<%= @review.flight_route_id %>">
+            <%= @review.flight_routes.route_id %>
           </a>
         <% end %>
       </dd>
