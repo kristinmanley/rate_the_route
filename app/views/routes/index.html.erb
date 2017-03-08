@@ -1,28 +1,21 @@
 <div class="page-header">
   <h1>
-    Reviews
-    <a href="/reviews/new" class="btn btn-lg btn-success">New Review</a>
+    Routes
+    <a href="/routes/new" class="btn btn-lg btn-success">New Route</a>
   </h1>
 </div><div class="row mb-1">
   <div class="col-md-12">
-    <%= search_form_for @q, :class => collapse_search_form, :id => "reviews_filters" do |f| %>
+    <%= search_form_for @q, :class => collapse_search_form, :id => "routes_filters" do |f| %>
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
-  <%= f.label :user_id, "User" %>
-  <div class="row">
-    <div class='col-md-6 mb-1'>
-      <%= f.text_field :user_id_gteq, :class => "form-control", :placeholder => "User greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :user_id_lteq, :class => "form-control", :placeholder => "User less than or equal to" %>
-    </div>
+    <%= f.label :destination_airport_cont, "Destination airport contains" %>
+    <%= f.text_field :destination_airport_cont, :class => "form-control", :placeholder => "Destination airport contains" %>
   </div>
-</div>
 
 <div class="form-group">
-    <%= f.label :body_cont, "Body contains" %>
-    <%= f.text_field :body_cont, :class => "form-control", :placeholder => "Body contains" %>
+    <%= f.label :departure_airport_cont, "Departure airport contains" %>
+    <%= f.text_field :departure_airport_cont, :class => "form-control", :placeholder => "Departure airport contains" %>
   </div>
 
 <div class="form-group">
@@ -69,9 +62,9 @@
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-      <a href="/reviews" class="btn btn-default btn-block mb-1">Clear filters</a>
+      <a href="/routes" class="btn btn-default btn-block mb-1">Clear filters</a>
     <% end %>
-    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#reviews_filters">
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#routes_filters">
       Show Filters
     </a>
   </div>
@@ -81,31 +74,23 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>User</th>
-        <th>Flight route</th>
-        <th>Body</th>
+        <th>Departure airport</th>
+        <th>Destination airport</th>
         <th>Actions</th>
       </tr>
 
-      <% @reviews.each do |review| %>
+      <% @routes.each do |route| %>
       <tr>
-        <td><%= review.user_id %></td>
+        <td><%= route.departure_airport %></td>
+        <td><%= route.destination_airport %></td>
         <td>
-          <% if review.flight_routes.present? %>
-            <a href="/flight_routes/<%= review.flight_routes.id %>">
-              <%= review.flight_routes.route_id %>
-            </a>
-          <% end %>
-        </td>
-        <td><%= review.body %></td>
-        <td>
-          <a href="/reviews/<%= review.id %>" class="btn btn-primary">Show</a>
-          <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_review/<%= review.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/routes/<%= route.id %>" class="btn btn-primary">Show</a>
+          <a href="/routes/<%= route.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_route/<%= route.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
     </table>
-    <%= paginate @reviews, theme: 'twitter-bootstrap-4' %>
+    <%= paginate @routes, theme: 'twitter-bootstrap-4' %>
   </div>
 </div>

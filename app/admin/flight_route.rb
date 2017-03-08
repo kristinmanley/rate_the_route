@@ -1,6 +1,6 @@
-ActiveAdmin.register Flight do
+ActiveAdmin.register FlightRoute do
 
- permit_params :departure_city_id, :destination_airport_id, :airline_id
+ permit_params :route_id, :airline_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
