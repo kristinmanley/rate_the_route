@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h3>Destination City #<%= @destination_city.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/destination_cities" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/destination_cities/<%= @destination_city.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_destination_city/<%= @destination_city.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
