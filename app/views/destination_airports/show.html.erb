@@ -5,6 +5,12 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+      <dt>Airport name</dt>
+      <dd><%= @destination_airport.airport_name %></dd>
+
+      <dt>Destination city</dt>
+      <dd><%= @destination_airport.destination_city %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -60,7 +66,7 @@
           Departure city
         </label>
 
-        <%= select_tag(:departure_city_id, options_from_collection_for_select(DestinationAirport.all, :id, :created_at), :class => "form-control") %>
+        <%= select_tag(:departure_city_id, options_from_collection_for_select(DestinationAirport.all, :id, :airport_name), :class => "form-control") %>
       </div>
 
       <!-- Label and input for destination_airport_id -->
@@ -69,7 +75,7 @@
           Destination airport
         </label>
 
-        <%= select_tag(:destination_airport_id, options_from_collection_for_select(DepartureAirport.all, :id, :created_at), :class => "form-control") %>
+        <%= select_tag(:destination_airport_id, options_from_collection_for_select(DepartureAirport.all, :id, :airport_name), :class => "form-control") %>
       </div>
 
       <!-- Label and input for airline_id -->
@@ -78,7 +84,7 @@
           Airline
         </label>
 
-        <%= select_tag(:airline_id, options_from_collection_for_select(AirlineCarrier.all, :id, :created_at), :class => "form-control") %>
+        <%= select_tag(:airline_id, options_from_collection_for_select(AirlineCarrier.all, :id, :airline_name), :class => "form-control") %>
       </div>
 
       <button class="btn btn-block btn-success">

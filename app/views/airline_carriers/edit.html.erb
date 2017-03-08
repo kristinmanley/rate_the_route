@@ -18,6 +18,15 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for airline_name -->
+      <div class="form-group">
+        <label for="airline_name" class="control-label">
+          Airline name
+        </label>
+
+        <input type="text" id="airline_name" name="airline_name" placeholder="Airline name" class="form-control" value="<%= @airline_carrier.airline_name %>">
+      </div>
+
       <button class="btn btn-warning">
         Update Airline Carrier
       </button>

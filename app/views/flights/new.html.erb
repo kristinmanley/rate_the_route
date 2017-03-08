@@ -24,7 +24,7 @@
           Departure city
         </label>
 
-        <%= select_tag(:departure_city_id, options_from_collection_for_select(DestinationAirport.all, :id, :created_at, @flight.departure_city_id), :class => "form-control") %>
+        <%= select_tag(:departure_city_id, options_from_collection_for_select(DestinationAirport.all, :id, :airport_name, @flight.departure_city_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for destination_airport_id -->
@@ -33,7 +33,7 @@
           Destination airport
         </label>
 
-        <%= select_tag(:destination_airport_id, options_from_collection_for_select(DepartureAirport.all, :id, :created_at, @flight.destination_airport_id), :class => "form-control") %>
+        <%= select_tag(:destination_airport_id, options_from_collection_for_select(DepartureAirport.all, :id, :airport_name, @flight.destination_airport_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for airline_id -->
@@ -42,7 +42,7 @@
           Airline
         </label>
 
-        <%= select_tag(:airline_id, options_from_collection_for_select(AirlineCarrier.all, :id, :created_at, @flight.airline_id), :class => "form-control") %>
+        <%= select_tag(:airline_id, options_from_collection_for_select(AirlineCarrier.all, :id, :airline_name, @flight.airline_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

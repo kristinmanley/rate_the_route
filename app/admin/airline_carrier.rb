@@ -1,6 +1,6 @@
 ActiveAdmin.register AirlineCarrier do
 
- permit_params 
+ permit_params :airline_name
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

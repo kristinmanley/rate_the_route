@@ -18,6 +18,24 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for airport_name -->
+      <div class="form-group">
+        <label for="airport_name" class="control-label">
+          Airport name
+        </label>
+
+        <input type="text" id="airport_name" name="airport_name" placeholder="Airport name" class="form-control" value="<%= @departure_airport.airport_name %>">
+      </div>
+
+      <!-- Label and input for departure_city -->
+      <div class="form-group">
+        <label for="departure_city" class="control-label">
+          Departure city
+        </label>
+
+        <input type="text" id="departure_city" name="departure_city" placeholder="Departure city" class="form-control" value="<%= @departure_airport.departure_city %>">
+      </div>
+
       <button class="btn btn-success">
         Create Departure Airport
       </button>

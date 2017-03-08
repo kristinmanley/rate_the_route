@@ -9,7 +9,7 @@
       <dd>
         <% if @flight.departure_city.present? %>
           <a href="/destination_airports/<%= @flight.departure_city_id %>">
-            <%= @flight.departure_city.created_at %>
+            <%= @flight.departure_city.airport_name %>
           </a>
         <% end %>
       </dd>
@@ -18,7 +18,7 @@
       <dd>
         <% if @flight.destination_airport.present? %>
           <a href="/departure_airports/<%= @flight.destination_airport_id %>">
-            <%= @flight.destination_airport.created_at %>
+            <%= @flight.destination_airport.airport_name %>
           </a>
         <% end %>
       </dd>
@@ -27,7 +27,7 @@
       <dd>
         <% if @flight.airline.present? %>
           <a href="/airline_carriers/<%= @flight.airline_id %>">
-            <%= @flight.airline.created_at %>
+            <%= @flight.airline.airline_name %>
           </a>
         <% end %>
       </dd>
@@ -86,6 +86,15 @@
 
       <!-- Label and input for flight_id -->
       <input type="hidden" name="flight_id" value="<%= @flight.id %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"></textarea>
+      </div>
 
       <button class="btn btn-block btn-success">
         Create Review
