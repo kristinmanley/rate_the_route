@@ -6,6 +6,7 @@ class DestinationAirportsController < ApplicationController
   end
 
   def show
+    @flight = Flight.new
     @destination_airport = DestinationAirport.find(params[:id])
 
     render("destination_airports/show.html.erb")
