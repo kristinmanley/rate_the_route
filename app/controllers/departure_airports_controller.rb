@@ -22,6 +22,8 @@ class DepartureAirportsController < ApplicationController
   def create
     @departure_airport = DepartureAirport.new
 
+    @departure_airport.airport_name = params[:airport_name]
+    @departure_airport.departure_city = params[:departure_city]
 
     save_status = @departure_airport.save
 
@@ -48,6 +50,8 @@ class DepartureAirportsController < ApplicationController
   def update
     @departure_airport = DepartureAirport.find(params[:id])
 
+    @departure_airport.airport_name = params[:airport_name]
+    @departure_airport.departure_city = params[:departure_city]
 
     save_status = @departure_airport.save
 

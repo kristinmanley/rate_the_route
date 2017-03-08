@@ -9,6 +9,11 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+    <%= f.label :body_cont, "Body contains" %>
+    <%= f.text_field :body_cont, :class => "form-control", :placeholder => "Body contains" %>
+  </div>
+
+<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -109,6 +114,7 @@
       <tr>
         <th>User</th>
         <th>Flight</th>
+        <th>Body</th>
         <th>Actions</th>
       </tr>
 
@@ -128,6 +134,7 @@
             </a>
           <% end %>
         </td>
+        <td><%= review.body %></td>
         <td>
           <a href="/reviews/<%= review.id %>" class="btn btn-primary">Show</a>
           

@@ -49,124 +49,19 @@
       </script>
 
         <div class="form-group">
-          <%= f.label :created_at, "AirlineCarrier Created at" %>
-          <div class="row">
-            <div class='col-md-6 mb-1'>
-              <div class='input-group date' id='airlinegteqcreated_atPicker'>
-                  <%= f.text_field :airline_created_at_gteq, :class => "form-control", :placeholder => "AirlineCarrier Created at greater than or equal to" %>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-            </div>
-
-            <div class='col-md-6'>
-              <div class='input-group date' id='airlinelteqcreated_atPicker'>
-                  <%= f.text_field :airline_created_at_lteq, :class => "form-control", :placeholder => "AirlineCarrier Created at less than or equal to" %>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-            </div>
-          </div>
-      </div>
-      <script type="text/javascript">
-          $(function () {
-              $('#airlinegteqcreated_atPicker').datetimepicker({
-                  format: 'YYYY-MM-DD hh:mm:SS'
-              });
-              $('#airlinelteqcreated_atPicker').datetimepicker({
-                  useCurrent: false,
-                  format: 'YYYY-MM-DD hh:mm:SS'
-              });
-              $('#airlinegteqcreated_atPicker').on("dp.change", function (e) {
-                  $('#airlinelteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
-              });
-              $('#airlinelteqcreated_atPicker').on("dp.change", function (e) {
-                  $('#airlinegteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
-              });
-          });
-      </script>
+      <%= f.label :airline_airline_name_cont, "AirlineCarrier airline_name contains" %>
+      <%= f.text_field :airline_airline_name_cont, :class => "form-control", :placeholder => "AirlineCarrier airline_name contains" %>
+    </div>
 
 <div class="form-group">
-          <%= f.label :created_at, "DestinationAirport Created at" %>
-          <div class="row">
-            <div class='col-md-6 mb-1'>
-              <div class='input-group date' id='departure_citygteqcreated_atPicker'>
-                  <%= f.text_field :departure_city_created_at_gteq, :class => "form-control", :placeholder => "DestinationAirport Created at greater than or equal to" %>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-            </div>
-
-            <div class='col-md-6'>
-              <div class='input-group date' id='departure_citylteqcreated_atPicker'>
-                  <%= f.text_field :departure_city_created_at_lteq, :class => "form-control", :placeholder => "DestinationAirport Created at less than or equal to" %>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-            </div>
-          </div>
-      </div>
-      <script type="text/javascript">
-          $(function () {
-              $('#departure_citygteqcreated_atPicker').datetimepicker({
-                  format: 'YYYY-MM-DD hh:mm:SS'
-              });
-              $('#departure_citylteqcreated_atPicker').datetimepicker({
-                  useCurrent: false,
-                  format: 'YYYY-MM-DD hh:mm:SS'
-              });
-              $('#departure_citygteqcreated_atPicker').on("dp.change", function (e) {
-                  $('#departure_citylteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
-              });
-              $('#departure_citylteqcreated_atPicker').on("dp.change", function (e) {
-                  $('#departure_citygteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
-              });
-          });
-      </script>
+      <%= f.label :departure_city_airport_name_cont, "DestinationAirport airport_name contains" %>
+      <%= f.text_field :departure_city_airport_name_cont, :class => "form-control", :placeholder => "DestinationAirport airport_name contains" %>
+    </div>
 
 <div class="form-group">
-          <%= f.label :created_at, "DepartureAirport Created at" %>
-          <div class="row">
-            <div class='col-md-6 mb-1'>
-              <div class='input-group date' id='destination_airportgteqcreated_atPicker'>
-                  <%= f.text_field :destination_airport_created_at_gteq, :class => "form-control", :placeholder => "DepartureAirport Created at greater than or equal to" %>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-            </div>
-
-            <div class='col-md-6'>
-              <div class='input-group date' id='destination_airportlteqcreated_atPicker'>
-                  <%= f.text_field :destination_airport_created_at_lteq, :class => "form-control", :placeholder => "DepartureAirport Created at less than or equal to" %>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-            </div>
-          </div>
-      </div>
-      <script type="text/javascript">
-          $(function () {
-              $('#destination_airportgteqcreated_atPicker').datetimepicker({
-                  format: 'YYYY-MM-DD hh:mm:SS'
-              });
-              $('#destination_airportlteqcreated_atPicker').datetimepicker({
-                  useCurrent: false,
-                  format: 'YYYY-MM-DD hh:mm:SS'
-              });
-              $('#destination_airportgteqcreated_atPicker').on("dp.change", function (e) {
-                  $('#destination_airportlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
-              });
-              $('#destination_airportlteqcreated_atPicker').on("dp.change", function (e) {
-                  $('#destination_airportgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
-              });
-          });
-      </script>
+      <%= f.label :destination_airport_airport_name_cont, "DepartureAirport airport_name contains" %>
+      <%= f.text_field :destination_airport_airport_name_cont, :class => "form-control", :placeholder => "DepartureAirport airport_name contains" %>
+    </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
@@ -193,21 +88,21 @@
         <td>
           <% if flight.departure_city.present? %>
             <a href="/destination_airports/<%= flight.departure_city.id %>">
-              <%= flight.departure_city.created_at %>
+              <%= flight.departure_city.airport_name %>
             </a>
           <% end %>
         </td>
         <td>
           <% if flight.destination_airport.present? %>
             <a href="/departure_airports/<%= flight.destination_airport.id %>">
-              <%= flight.destination_airport.created_at %>
+              <%= flight.destination_airport.airport_name %>
             </a>
           <% end %>
         </td>
         <td>
           <% if flight.airline.present? %>
             <a href="/airline_carriers/<%= flight.airline.id %>">
-              <%= flight.airline.created_at %>
+              <%= flight.airline.airline_name %>
             </a>
           <% end %>
         </td>

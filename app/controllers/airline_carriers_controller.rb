@@ -22,6 +22,7 @@ class AirlineCarriersController < ApplicationController
   def create
     @airline_carrier = AirlineCarrier.new
 
+    @airline_carrier.airline_name = params[:airline_name]
 
     save_status = @airline_carrier.save
 
@@ -48,6 +49,7 @@ class AirlineCarriersController < ApplicationController
   def update
     @airline_carrier = AirlineCarrier.find(params[:id])
 
+    @airline_carrier.airline_name = params[:airline_name]
 
     save_status = @airline_carrier.save
 

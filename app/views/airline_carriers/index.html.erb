@@ -9,11 +9,13 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Airline name</th>
         <th>Actions</th>
       </tr>
 
       <% @airline_carriers.each do |airline_carrier| %>
       <tr>
+        <td><%= airline_carrier.airline_name %></td>
         <td>
           <a href="/airline_carriers/<%= airline_carrier.id %>" class="btn btn-primary">Show</a>
           <a href="/airline_carriers/<%= airline_carrier.id %>/edit" class="btn btn-warning">Edit</a>
