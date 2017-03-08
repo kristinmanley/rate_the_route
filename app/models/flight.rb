@@ -1,6 +1,8 @@
 class Flight < ApplicationRecord
   # Direct associations
 
+  belongs_to :departure_airport
+
   belongs_to :destination_airport
 
   has_many   :reviews,
