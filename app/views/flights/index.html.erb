@@ -20,7 +20,7 @@
       <% @flights.each do |flight| %>
       <tr>
         <td><%= flight.destination_city.created_at %></td>
-        <td><%= flight.departure_city_id %></td>
+        <td><%= flight.departure_city.created_at %></td>
         <td><%= flight.destination_airport_id %></td>
         <td><%= flight.departure_airport_id %></td>
         <td><%= flight.airline_id %></td>
