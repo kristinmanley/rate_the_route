@@ -1,6 +1,7 @@
 class DepartureCitiesController < ApplicationController
   def index
-    @departure_cities = DepartureCity.page(params[:page]).per(10)
+    @q = DepartureCity.ransack(params[:q])
+    @departure_cities = @q.result(:distinct => true).includes(:flights).page(params[:page]).per(10)
 
     render("departure_cities/index.html.erb")
   end

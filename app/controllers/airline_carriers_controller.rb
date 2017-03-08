@@ -1,6 +1,7 @@
 class AirlineCarriersController < ApplicationController
   def index
-    @airline_carriers = AirlineCarrier.page(params[:page]).per(10)
+    @q = AirlineCarrier.ransack(params[:q])
+    @airline_carriers = @q.result(:distinct => true).includes(:flights).page(params[:page]).per(10)
 
     render("airline_carriers/index.html.erb")
   end

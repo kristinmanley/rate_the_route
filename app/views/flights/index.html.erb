@@ -3,6 +3,259 @@
     Flights
     <a href="/flights/new" class="btn btn-lg btn-success">New Flight</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "flights_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+          <%= f.label :created_at, "AirlineCarrier Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='airlinegteqcreated_atPicker'>
+                  <%= f.text_field :airline_created_at_gteq, :class => "form-control", :placeholder => "AirlineCarrier Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='airlinelteqcreated_atPicker'>
+                  <%= f.text_field :airline_created_at_lteq, :class => "form-control", :placeholder => "AirlineCarrier Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#airlinegteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#airlinelteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#airlinegteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#airlinelteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#airlinelteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#airlinegteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "DepartureCity Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='departure_citygteqcreated_atPicker'>
+                  <%= f.text_field :departure_city_created_at_gteq, :class => "form-control", :placeholder => "DepartureCity Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='departure_citylteqcreated_atPicker'>
+                  <%= f.text_field :departure_city_created_at_lteq, :class => "form-control", :placeholder => "DepartureCity Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#departure_citygteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#departure_citylteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#departure_citygteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#departure_citylteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#departure_citylteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#departure_citygteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "DestinationCity Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='destination_citygteqcreated_atPicker'>
+                  <%= f.text_field :destination_city_created_at_gteq, :class => "form-control", :placeholder => "DestinationCity Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='destination_citylteqcreated_atPicker'>
+                  <%= f.text_field :destination_city_created_at_lteq, :class => "form-control", :placeholder => "DestinationCity Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#destination_citygteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#destination_citylteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#destination_citygteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#destination_citylteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#destination_citylteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#destination_citygteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "DestinationAirport Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='destination_airportgteqcreated_atPicker'>
+                  <%= f.text_field :destination_airport_created_at_gteq, :class => "form-control", :placeholder => "DestinationAirport Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='destination_airportlteqcreated_atPicker'>
+                  <%= f.text_field :destination_airport_created_at_lteq, :class => "form-control", :placeholder => "DestinationAirport Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#destination_airportgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#destination_airportlteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#destination_airportgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#destination_airportlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#destination_airportlteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#destination_airportgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "DepartureAirport Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='departure_airportgteqcreated_atPicker'>
+                  <%= f.text_field :departure_airport_created_at_gteq, :class => "form-control", :placeholder => "DepartureAirport Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='departure_airportlteqcreated_atPicker'>
+                  <%= f.text_field :departure_airport_created_at_lteq, :class => "form-control", :placeholder => "DepartureAirport Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#departure_airportgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#departure_airportlteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#departure_airportgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#departure_airportlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#departure_airportlteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#departure_airportgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/flights" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#flights_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">
