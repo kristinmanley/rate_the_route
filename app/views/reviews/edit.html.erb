@@ -27,7 +27,7 @@
           Flight
         </label>
 
-        <%= select_tag(:flight_id, options_from_collection_for_select(Flight.all, :id, :destination_city_id, @review.flight_id), :class => "form-control") %>
+        <%= select_tag(:flight_id, options_from_collection_for_select(Flight.all, :id, :created_at, @review.flight_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">

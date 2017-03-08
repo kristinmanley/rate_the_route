@@ -77,40 +77,6 @@ Rails.application.routes.draw do
   get "/delete_review/:id", :controller => "reviews", :action => "destroy"
   #------------------------------
 
-  # Routes for the Destination_city resource:
-  # CREATE
-  get "/destination_cities/new", :controller => "destination_cities", :action => "new"
-  post "/create_destination_city", :controller => "destination_cities", :action => "create"
-
-  # READ
-  get "/destination_cities", :controller => "destination_cities", :action => "index"
-  get "/destination_cities/:id", :controller => "destination_cities", :action => "show"
-
-  # UPDATE
-  get "/destination_cities/:id/edit", :controller => "destination_cities", :action => "edit"
-  post "/update_destination_city/:id", :controller => "destination_cities", :action => "update"
-
-  # DELETE
-  get "/delete_destination_city/:id", :controller => "destination_cities", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Departure_city resource:
-  # CREATE
-  get "/departure_cities/new", :controller => "departure_cities", :action => "new"
-  post "/create_departure_city", :controller => "departure_cities", :action => "create"
-
-  # READ
-  get "/departure_cities", :controller => "departure_cities", :action => "index"
-  get "/departure_cities/:id", :controller => "departure_cities", :action => "show"
-
-  # UPDATE
-  get "/departure_cities/:id/edit", :controller => "departure_cities", :action => "edit"
-  post "/update_departure_city/:id", :controller => "departure_cities", :action => "update"
-
-  # DELETE
-  get "/delete_departure_city/:id", :controller => "departure_cities", :action => "destroy"
-  #------------------------------
-
   # Routes for the Airline_carrier resource:
   # CREATE
   get "/airline_carriers/new", :controller => "airline_carriers", :action => "new"

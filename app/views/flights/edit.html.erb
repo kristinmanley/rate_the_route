@@ -18,22 +18,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for destination_city_id -->
-      <div class="form-group">
-        <label for="destination_city_id" class="control-label">
-          Destination city
-        </label>
-
-        <%= select_tag(:destination_city_id, options_from_collection_for_select(DestinationCity.all, :id, :created_at, @flight.destination_city_id), :class => "form-control") %>
-      </div>
-
       <!-- Label and input for departure_city_id -->
       <div class="form-group">
         <label for="departure_city_id" class="control-label">
           Departure city
         </label>
 
-        <%= select_tag(:departure_city_id, options_from_collection_for_select(DepartureCity.all, :id, :created_at, @flight.departure_city_id), :class => "form-control") %>
+        <%= select_tag(:departure_city_id, options_from_collection_for_select(DestinationAirport.all, :id, :created_at, @flight.departure_city_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for destination_airport_id -->
@@ -42,16 +33,7 @@
           Destination airport
         </label>
 
-        <%= select_tag(:destination_airport_id, options_from_collection_for_select(DestinationAirport.all, :id, :created_at, @flight.destination_airport_id), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for departure_airport_id -->
-      <div class="form-group">
-        <label for="departure_airport_id" class="control-label">
-          Departure airport
-        </label>
-
-        <%= select_tag(:departure_airport_id, options_from_collection_for_select(DepartureAirport.all, :id, :created_at, @flight.departure_airport_id), :class => "form-control") %>
+        <%= select_tag(:destination_airport_id, options_from_collection_for_select(DepartureAirport.all, :id, :created_at, @flight.destination_airport_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for airline_id -->

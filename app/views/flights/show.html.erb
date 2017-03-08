@@ -5,19 +5,10 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Destination city</dt>
-      <dd>
-        <% if @flight.destination_city.present? %>
-          <a href="/destination_cities/<%= @flight.destination_city_id %>">
-            <%= @flight.destination_city.created_at %>
-          </a>
-        <% end %>
-      </dd>
-
       <dt>Departure city</dt>
       <dd>
         <% if @flight.departure_city.present? %>
-          <a href="/departure_cities/<%= @flight.departure_city_id %>">
+          <a href="/destination_airports/<%= @flight.departure_city_id %>">
             <%= @flight.departure_city.created_at %>
           </a>
         <% end %>
@@ -26,17 +17,8 @@
       <dt>Destination airport</dt>
       <dd>
         <% if @flight.destination_airport.present? %>
-          <a href="/destination_airports/<%= @flight.destination_airport_id %>">
+          <a href="/departure_airports/<%= @flight.destination_airport_id %>">
             <%= @flight.destination_airport.created_at %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>Departure airport</dt>
-      <dd>
-        <% if @flight.departure_airport.present? %>
-          <a href="/departure_airports/<%= @flight.departure_airport_id %>">
-            <%= @flight.departure_airport.created_at %>
           </a>
         <% end %>
       </dd>
