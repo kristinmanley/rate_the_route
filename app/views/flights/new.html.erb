@@ -51,7 +51,7 @@
           Departure airport
         </label>
 
-        <input type="text" id="departure_airport_id" name="departure_airport_id" placeholder="Departure airport" class="form-control" value="<%= @flight.departure_airport_id %>">
+        <%= select_tag(:departure_airport_id, options_from_collection_for_select(DepartureAirport.all, :id, :created_at, @flight.departure_airport_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for airline_id -->
