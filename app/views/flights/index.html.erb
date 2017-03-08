@@ -19,11 +19,41 @@
 
       <% @flights.each do |flight| %>
       <tr>
-        <td><%= flight.destination_city.created_at %></td>
-        <td><%= flight.departure_city.created_at %></td>
-        <td><%= flight.destination_airport.created_at %></td>
-        <td><%= flight.departure_airport.created_at %></td>
-        <td><%= flight.airline.created_at %></td>
+        <td>
+          <% if flight.destination_city.present? %>
+            <a href="/destination_cities/<%= flight.destination_city.id %>">
+              <%= flight.destination_city.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.departure_city.present? %>
+            <a href="/departure_cities/<%= flight.departure_city.id %>">
+              <%= flight.departure_city.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.destination_airport.present? %>
+            <a href="/destination_airports/<%= flight.destination_airport.id %>">
+              <%= flight.destination_airport.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.departure_airport.present? %>
+            <a href="/departure_airports/<%= flight.departure_airport.id %>">
+              <%= flight.departure_airport.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.airline.present? %>
+            <a href="/airline_carriers/<%= flight.airline.id %>">
+              <%= flight.airline.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/flights/<%= flight.id %>" class="btn btn-primary">Show</a>
           <a href="/flights/<%= flight.id %>/edit" class="btn btn-warning">Edit</a>
