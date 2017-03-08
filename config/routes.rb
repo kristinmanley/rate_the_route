@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "airline_carriers#index"
   # Routes for the Departure_airport resource:
   # CREATE
   get "/departure_airports/new", :controller => "departure_airports", :action => "new"
