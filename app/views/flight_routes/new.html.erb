@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @flight_route.errors.any? %>
+  <% @flight_route.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Flight Route</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_flight_route" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for route_id -->
+      <div class="form-group">
+        <label for="route_id" class="control-label">
+          Route
+        </label>
+
+        <%= select_tag(:route_id, options_from_collection_for_select(Route.all, :id, :created_at, @flight_route.route_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for airline_id -->
+      <div class="form-group">
+        <label for="airline_id" class="control-label">
+          Airline
+        </label>
+
+        <%= select_tag(:airline_id, options_from_collection_for_select(AirlineCarrier.all, :id, :airline_name, @flight_route.airline_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-success">
+        Create Flight Route
+      </button>
+      or
+      <a href="/flight_routes">Cancel</a>
+    </form>
+  </div>
+</div>

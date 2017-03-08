@@ -1,33 +1,24 @@
 <div class="page-header">
-  <h3>Flight #<%= @flight.id %></h3>
+  <h3>Flight Route #<%= @flight_route.id %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Departure city</dt>
+      <dt>Route</dt>
       <dd>
-        <% if @flight.departure_city.present? %>
-          <a href="/destination_airports/<%= @flight.departure_city_id %>">
-            <%= @flight.departure_city.airport_name %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>Destination airport</dt>
-      <dd>
-        <% if @flight.destination_airport.present? %>
-          <a href="/departure_airports/<%= @flight.destination_airport_id %>">
-            <%= @flight.destination_airport.airport_name %>
+        <% if @flight_route.route.present? %>
+          <a href="/routes/<%= @flight_route.route_id %>">
+            <%= @flight_route.route.created_at %>
           </a>
         <% end %>
       </dd>
 
       <dt>Airline</dt>
       <dd>
-        <% if @flight.airline.present? %>
-          <a href="/airline_carriers/<%= @flight.airline_id %>">
-            <%= @flight.airline.airline_name %>
+        <% if @flight_route.airline.present? %>
+          <a href="/airline_carriers/<%= @flight_route.airline_id %>">
+            <%= @flight_route.airline.airline_name %>
           </a>
         <% end %>
       </dd>
@@ -35,20 +26,20 @@
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/flights" class="btn btn-primary">
+      <a href="/flight_routes" class="btn btn-primary">
         Back
       </a>
-      <a href="/flights/<%= @flight.id %>/edit" class="btn btn-warning">
+      <a href="/flight_routes/<%= @flight_route.id %>/edit" class="btn btn-warning">
         Edit
       </a>
-      <a href="/delete_flight/<%= @flight.id %>" class="btn btn-danger" rel="nofollow">
+      <a href="/delete_flight_route/<%= @flight_route.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
     </div>
   </div>
 </div>
 
-<!-- A Flight has many reviews -->
+<!-- A Flight route has many reviews -->
 
 <div class="row">
   <div class="col-md-12">
@@ -57,7 +48,7 @@
         Reviews
       </li>
 
-      <% @flight.reviews.each do |review| %>
+      <% @flight_route.reviews.each do |review| %>
         <li class="list-group-item">
           <a href="/reviews/<%= review.id %>">
             <%= review.user_id %>
@@ -82,10 +73,22 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for user_id -->
-      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
 
-      <!-- Label and input for flight_id -->
-      <input type="hidden" name="flight_id" value="<%= @flight.id %>">
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for flight_route_id -->
+      <div class="form-group">
+        <label for="flight_route_id" class="control-label">
+          Flight route
+        </label>
+
+        <%= select_tag(:flight_route_id, options_from_collection_for_select(FlightRoute.all, :id, :route_id), :class => "form-control") %>
+      </div>
 
       <!-- Label and input for body -->
       <div class="form-group">
