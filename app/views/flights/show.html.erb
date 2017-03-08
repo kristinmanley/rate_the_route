@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Flight #<%= @flight.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Destination city</dt>
+      <dd><%= @flight.destination_city_id %></dd>
+
+      <dt>Departure city</dt>
+      <dd><%= @flight.departure_city_id %></dd>
+
+      <dt>Destination airport</dt>
+      <dd><%= @flight.destination_airport_id %></dd>
+
+      <dt>Departure airport</dt>
+      <dd><%= @flight.departure_airport_id %></dd>
+
+      <dt>Airline</dt>
+      <dd><%= @flight.airline_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/flights" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/flights/<%= @flight.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_flight/<%= @flight.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
