@@ -2,55 +2,38 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "airline_carriers#index"
-  # Routes for the Departure_airport resource:
+  # Routes for the Flight_route resource:
   # CREATE
-  get "/departure_airports/new", :controller => "departure_airports", :action => "new"
-  post "/create_departure_airport", :controller => "departure_airports", :action => "create"
+  get "/flight_routes/new", :controller => "flight_routes", :action => "new"
+  post "/create_flight_route", :controller => "flight_routes", :action => "create"
 
   # READ
-  get "/departure_airports", :controller => "departure_airports", :action => "index"
-  get "/departure_airports/:id", :controller => "departure_airports", :action => "show"
+  get "/flight_routes", :controller => "flight_routes", :action => "index"
+  get "/flight_routes/:id", :controller => "flight_routes", :action => "show"
 
   # UPDATE
-  get "/departure_airports/:id/edit", :controller => "departure_airports", :action => "edit"
-  post "/update_departure_airport/:id", :controller => "departure_airports", :action => "update"
+  get "/flight_routes/:id/edit", :controller => "flight_routes", :action => "edit"
+  post "/update_flight_route/:id", :controller => "flight_routes", :action => "update"
 
   # DELETE
-  get "/delete_departure_airport/:id", :controller => "departure_airports", :action => "destroy"
+  get "/delete_flight_route/:id", :controller => "flight_routes", :action => "destroy"
   #------------------------------
 
-  # Routes for the Destination_airport resource:
+  # Routes for the Route resource:
   # CREATE
-  get "/destination_airports/new", :controller => "destination_airports", :action => "new"
-  post "/create_destination_airport", :controller => "destination_airports", :action => "create"
+  get "/routes/new", :controller => "routes", :action => "new"
+  post "/create_route", :controller => "routes", :action => "create"
 
   # READ
-  get "/destination_airports", :controller => "destination_airports", :action => "index"
-  get "/destination_airports/:id", :controller => "destination_airports", :action => "show"
+  get "/routes", :controller => "routes", :action => "index"
+  get "/routes/:id", :controller => "routes", :action => "show"
 
   # UPDATE
-  get "/destination_airports/:id/edit", :controller => "destination_airports", :action => "edit"
-  post "/update_destination_airport/:id", :controller => "destination_airports", :action => "update"
+  get "/routes/:id/edit", :controller => "routes", :action => "edit"
+  post "/update_route/:id", :controller => "routes", :action => "update"
 
   # DELETE
-  get "/delete_destination_airport/:id", :controller => "destination_airports", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Flight resource:
-  # CREATE
-  get "/flights/new", :controller => "flights", :action => "new"
-  post "/create_flight", :controller => "flights", :action => "create"
-
-  # READ
-  get "/flights", :controller => "flights", :action => "index"
-  get "/flights/:id", :controller => "flights", :action => "show"
-
-  # UPDATE
-  get "/flights/:id/edit", :controller => "flights", :action => "edit"
-  post "/update_flight/:id", :controller => "flights", :action => "update"
-
-  # DELETE
-  get "/delete_flight/:id", :controller => "flights", :action => "destroy"
+  get "/delete_route/:id", :controller => "routes", :action => "destroy"
   #------------------------------
 
   devise_for :users

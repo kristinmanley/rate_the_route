@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
 
   def index
     @q = Review.ransack(params[:q])
-    @reviews = @q.result(:distinct => true).includes(:user, :flight).page(params[:page]).per(10)
+    @reviews = @q.result(:distinct => true).includes(:user, :flight_routes).page(params[:page]).per(10)
 
     render("reviews/index.html.erb")
   end
@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
     @review = Review.new
 
     @review.user_id = params[:user_id]
-    @review.flight_id = params[:flight_id]
+    @review.flight_route_id = params[:flight_route_id]
     @review.body = params[:body]
 
     save_status = @review.save
@@ -59,7 +59,7 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @review.flight_id = params[:flight_id]
+    @review.flight_route_id = params[:flight_route_id]
     @review.body = params[:body]
 
     save_status = @review.save
