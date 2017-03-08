@@ -1,0 +1,28 @@
+<!-- Validation failure messages -->
+<% if @destination_airport.errors.any? %>
+  <% @destination_airport.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Destination Airport</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_destination_airport" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <button class="btn btn-success">
+        Create Destination Airport
+      </button>
+      or
+      <a href="/destination_airports">Cancel</a>
+    </form>
+  </div>
+</div>
